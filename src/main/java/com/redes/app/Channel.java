@@ -17,23 +17,6 @@ public class Channel
         this.name = name;
     }
 
-    public byte[] getAudioChunk()
-    {
-        byte[] array1 = this.playing.header;
-        byte[] array2 = this.availableBuffer;
-
-        // Cria um novo array com o tamanho dos dois arrays
-        byte[] result = new byte[array1.length + array2.length];
-
-        // Copia o conteúdo do primeiro array para o novo array
-        System.arraycopy(array1, 0, result, 0, array1.length);
-
-        // Copia o conteúdo do segundo array para o novo array após o primeiro array
-        System.arraycopy(array2, 0, result, array1.length, array2.length);
-
-        return result;
-    }
-
     public void start()
     {
         for ( Track track : this.tracks )
@@ -42,11 +25,6 @@ public class Channel
             try (FileInputStream fis = new FileInputStream(track.file))
             {
                 System.out.println("broadcasting " + track.name);
-                
-                // Read header
-                byte[] header = new byte[track.headerSize]; // WAV header size
-                fis.read(header); // Read the WAV header
-                track.header = header;
 
                 // Set current playing track
                 this.playing = track;

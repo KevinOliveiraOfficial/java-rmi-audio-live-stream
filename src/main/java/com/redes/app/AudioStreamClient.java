@@ -48,7 +48,7 @@ public class AudioStreamClient
             line.start();
 
             byte[] audioChunk;
-            while ((audioChunk = audioStreamClient.audioStream.getAudioChunk("POP")) != null)
+            while ((audioChunk = audioStreamClient.audioStream.getAudioChunk("ELETRO")) != null)
             {
                 line.write(audioChunk, 0, audioChunk.length);
                 System.out.println(audioChunk.length);
