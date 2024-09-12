@@ -3,9 +3,22 @@
 Requisitos necessários
 - Java 21
 
-Comando para rodar o Backend:
-- java -jar ./target/redes-api-1.0-SNAPSHOT.jar
+## Comandos para executar o progama:
 
-Para rodar o Frontend:
-- Trocar o IP na linha 13 do arquivo client.html para o IP local
-- Abrir client.html com um navegador
+#### Necessário estar na raiz do diretório do projeto!
+#### 1. Inicialize o rmiregistry
+```
+rmireg.bat
+```
+
+#### 2. Inicialize o server
+```
+java -jar ./target/audio-stream-rmi-1.0-SNAPSHOT.jar server
+```
+
+
+#### 3. Inicialize o client
+```
+java -jar ./target/audio-stream-rmi-1.0-SNAPSHOT.jar client
+```
+Escolha as opções disponíveis do menu!

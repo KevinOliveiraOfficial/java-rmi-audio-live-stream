@@ -5,12 +5,12 @@
   <modelVersion>4.0.0</modelVersion>
 
   <groupId>com.redes</groupId>
-  <artifactId>redes-api</artifactId>
+  <artifactId>audio-stream-rmi</artifactId>
   <version>1.0-SNAPSHOT</version>
 
-  <name>redes-api</name>
+  <name>audio-stream-rmi</name>
   <!-- FIXME change it to the project's website -->
-  <url>http://www.redes.com.br</url>
+  <url>http://www.sistemasdistribuidosunioeste.com.br</url>
 
   <properties>
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
@@ -24,20 +24,6 @@
 			<version>4.11</version>
 			<scope>test</scope>
 		</dependency>
-
-        <!-- https://mvnrepository.com/artifact/org.java-websocket/Java-WebSocket -->
-        <dependency>
-            <groupId>org.java-websocket</groupId>
-            <artifactId>Java-WebSocket</artifactId>
-            <version>1.5.7</version>
-        </dependency>
-        <!-- https://mvnrepository.com/artifact/org.json/json -->
-        <dependency>
-            <groupId>org.json</groupId>
-            <artifactId>json</artifactId>
-            <version>20240303</version>
-        </dependency>
-
   	</dependencies>
 
   <build>

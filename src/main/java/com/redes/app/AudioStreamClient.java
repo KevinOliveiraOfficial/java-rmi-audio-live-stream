@@ -73,10 +73,10 @@ public class AudioStreamClient {
         new Thread(this::playChannel).start(); // Inicia a reprodução em uma nova thread
     }
 
-    public static void main(String[] args) {
-        try {
-            // Conecta ao serviço de áudio via RMI
-            AudioStreamClient audioStreamClient = new AudioStreamClient((AudioStream) Naming.lookup("rmi://localhost:1099/AudioStreamService"));
+    public void init()
+    {
+        try
+        {
             Scanner scanner = new Scanner(System.in);
             boolean exit = false;
 
@@ -93,33 +93,33 @@ public class AudioStreamClient {
 
                 switch (choice) {
                     case 1:
-                        audioStreamClient.showChannels();
+                        this.showChannels();
                         break;
                     case 2:
-                        audioStreamClient.stopPlaying(); // Para a música antes de escolher o novo canal
+                        this.stopPlaying(); // Para a música antes de escolher o novo canal
                         System.out.print("Digite o nome do canal: ");
                         String channel = scanner.nextLine();
-                        audioStreamClient.changeChannel(channel); // Muda o canal e já começa a tocar
+                        this.changeChannel(channel); // Muda o canal e já começa a tocar
                         break;
                     case 3:
-                        audioStreamClient.stopPlaying(); // Para a música antes de trocar de canal
-                        List<String> channels = audioStreamClient.audioStream.getChannels();
-                        int currentIndex = channels.indexOf(audioStreamClient.currentChannel);
+                        this.stopPlaying(); // Para a música antes de trocar de canal
+                        List<String> channels = this.audioStream.getChannels();
+                        int currentIndex = channels.indexOf(this.currentChannel);
                         if (currentIndex != -1) {
                             // Se for o último canal, volta para o primeiro
                             if (currentIndex == channels.size() - 1) {
-                                audioStreamClient.changeChannel(channels.get(0));
+                                this.changeChannel(channels.get(0));
                             } else {
-                                audioStreamClient.changeChannel(channels.get(currentIndex + 1));
+                                this.changeChannel(channels.get(currentIndex + 1));
                             }
                         }
                         break;
                     case 4:
-                        audioStreamClient.stopPlaying(); // Para a reprodução
+                        this.stopPlaying(); // Para a reprodução
                         System.out.println("Reprodução parada.");
                         break;
                     case 5:
-                        audioStreamClient.stopPlaying(); // Certifica-se de parar a reprodução antes de sair
+                        this.stopPlaying(); // Certifica-se de parar a reprodução antes de sair
                         exit = true;
                         System.out.println("Saindo...");
                         break;
@@ -133,5 +133,10 @@ public class AudioStreamClient {
         } catch (Exception e) {
             e.printStackTrace();
         }
+    }
+
+    public static void main(String[] args)
+    {
+        
     }
 }
